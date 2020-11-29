@@ -1,0 +1,145 @@
+{% extends 'APP/main.html' %}
+{% load static %}
+{%  block content %}
+
+
+ <style>
+
+        .form-register {
+          width: 100%;
+          max-width: 330px;
+          padding: 15px;
+          margin:auto;
+          margin-top:2em;
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+        }
+
+        .form-register .form-control {
+          font-size: 18px;
+          display:flex;
+          flex-direction:row;
+          align-items:center;
+        }
+        .form-control:focus {
+          z-index: 2;
+          border:1px solid blue;
+        }
+        #id_username{
+          position: relative;
+          box-sizing: border-box;
+          height: auto;
+          width:18em;
+          padding: 8px;
+          display: block;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: .25rem;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        #id_email{
+          position: relative;
+          box-sizing: border-box;
+          height: auto;
+          width:18em;
+          padding: 8px;
+          display: block;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: .25rem;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        #id_password1{
+          position: relative;
+          box-sizing: border-box;
+          height: auto;
+          width:18em;
+          padding: 8px;
+          display: block;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: .25rem;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        #id_password2{
+          position: relative;
+          box-sizing: border-box;
+          height: auto;
+          width:18em;
+          padding: 8px;
+          display: block;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: .25rem;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+
+        .form-register input[type="text"] {
+          margin-bottom: -1px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+
+        .form-register input[type="email"] {
+          margin-bottom: -1px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        .form-register input[type="password"] {
+          margin-bottom: -1px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        .form-register input[type="submit"] {
+          margin-top: 11px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+    </style>
+
+<form class="form-register" method="POST" action="">
+  {% csrf_token %}
+  <h1 class="h3 mb-3 font-weight-normal">Sign up now</h1>
+        {{form.username}}
+        {{form.email}}
+        {{form.password1}}
+        {{form.password2}}
+  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign up">
+  {{form.errors}}
+  <br>
+  Already have an account?<a href ="{% url 'login' %}">Login</a>
+   <br>
+  <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+</form>
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Username...';
+    form_fields[2].placeholder = 'Email...(can be unfilled)';
+    form_fields[3].placeholder = 'Enter password...';
+    form_fields[4].placeholder = 'Re-enter password...';
+
+    for (var field in form_fields){
+         form_field[field].className+='form-control';
+    }
+</script>
+{% endblock %}

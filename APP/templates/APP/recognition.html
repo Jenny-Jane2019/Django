@@ -1,0 +1,32 @@
+{% extends 'APP/main.html' %}
+
+{% block content %}
+<div class="body">
+    <div class="left">
+        {% include 'APP/base.html' %}
+    </div>
+    <div class="card-header">
+        <h1>Operation Guide</h1>
+        <h5 >Step one:Click the "upload" button on the left </h5>
+        <p>This step is to upload your audio file. Only support MP3, MP4, wav format, and upload up to 10 files.</p>
+        <br>
+        <h5 >Step two:Click the "Audio File List" button on the left</h5>
+        <p>This step is to show files you listed.</p>
+        <br>
+        <h5 >Step Three:Select the audio you want to recognize in the audio file list, and click the corresponding "recognition" button </h5>
+        <p>This step is to  realize online recognition</p>
+    </div>
+</div>
+
+<style>
+         .body {
+            display:flex;
+            flex-direction:row;
+            margin-top:2em;
+         }
+         .left{
+            margin-left:4%;
+            margin-right:4%;
+         }
+</style>
+{% endblock %}
