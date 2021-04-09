@@ -15,5 +15,11 @@ class CreateUserForm(UserCreationForm):
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ['speaker_name', 'speaker_sex', 'speaker_age', 'file']
+        fields = ['speaker_name', 'speaker_sex', 'speaker_age', 'phone_type', 'geography', 'environment', 'file']
+
+
+class MapForm(ModelForm):
+    class Meta:
+        model = Map
+        fields = ['overlap']
 

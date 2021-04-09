@@ -1,0 +1,128 @@
+{% extends 'APP/main.html' %} {% load static %}{% block content %}
+<div class="statistics">
+    <div class="list-group">
+        {% include 'APP/menu.html' %}
+    </div>
+    <div class="card-header">
+            <h4>Geographical distribution</h4>
+            <ul class="brief_body">
+                <li class="total" >
+                    <div class="member">{{total}}</div>
+                    <div class="item" style="background-color:#58aaea">Total</div>
+                </li>
+                <li class="total">
+                    <div class="member">{{female}}</div>
+                    <div class="item" style="background-color:#58aaea">Female</div>
+                </li>
+                <li class="total">
+                    <div class="member">{{male}}</div>
+                    <div class="item" style="background-color: #58aaea">Male</div>
+                </li>
+            </ul>
+            <div id="Geographic"></div>
+    </div>
+</div>
+<!--<div class="statistics">
+    <div id="list-example" class="list-group">
+        <a class="list-group-item list-group-item-action" href="#list-item-1">Geographical distribution</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-2">Age distribution</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-3">Phone Type</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-4">Recording environment</a>
+    </div>
+    <div id="content" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+        <div class="pic">
+            <h4 id="list-item-1">Geographical distribution</h4>
+            <ul class="brief_body">
+                <li class="total">
+                    <div class="member">40</div>
+                    <div class="item">Total</div>
+                </li>
+                <li class="total">
+                    <div class="member">22</div>
+                    <div class="item">Female</div>
+                </li>
+                <li class="total">
+                    <div class="member">18</div>
+                    <div class="item">Male</div>
+                </li>
+            </ul>
+            <div id="Geographic"></div>
+        </div>
+        <div class="pic">
+            <h4 id="list-item-2">Age distribution</h4>
+            <div id="Age"></div>
+        </div>
+        <div class="pic">
+            <h4 id="list-item-3">Phone Type</h4>
+            <div id="Phone"></div>
+        </div>
+        <div class="pic">
+            <h4 id="list-item-4">Recording environment</h4>
+            <div id="Environment"></div>
+        </div>
+    </div>
+</div>!-->
+<script>
+    var MyViewVar ={
+        var_1: {{List1}},
+        var_2: {{List2}}
+    }
+</script>
+<style>
+    .statistics{
+        display:flex;
+        flex-direction: row;
+        margin-top:2em;
+    }
+    .list-group{
+        margin-left:4%;
+        width:250px;
+        margin-right: 4%;
+    }
+    .brief_body li{
+        list-style: none;
+    }
+    .brief_body .total{
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 4%;
+    }
+    .brief_body .total .item{
+        color: #000;
+        width: 6rem;
+        height: 2rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    #Geographic{
+        width: 800px;
+        height: 600px;
+        margin: -80px auto auto auto;
+    }
+    #Age{
+        width: 700px;
+        height: 500px;
+        margin: 0 auto auto auto;
+    }
+    #Phone{
+        width: 700px;
+        height: 500px;
+        margin: 0 auto auto auto;
+    }
+    #Environment{
+        width: 700px;
+        height: 500px;
+        margin: 0 auto auto auto;
+    }
+</style>
+<script src="{% static 'js/echarts.js' %}"></script>
+<script src="{% static 'js/china.js' %}"></script>
+<script src="{% static 'js/geography.js' %}"></script>
+<script src="{% static 'js/age.js' %}"></script>
+<script src="{% static 'js/phone.js' %}"></script>
+<script src="{% static 'js/environment.js' %}"></script>
+
+{% endblock %}a

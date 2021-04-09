@@ -1,0 +1,36 @@
+{% extends 'APP/main.html' %} {% load static %}{% block content %}
+<div class="statistics">
+    <div class="list-group">
+        {% include 'APP/menu.html' %}
+    </div>
+    <div class="card-header">
+        <h4 id="list-item">Phone Type</h4>
+        <div id="Phone"></div>
+    </div>
+</div>
+<style>
+    .statistics{
+        display:flex;
+        flex-direction: row;
+        margin-top:2em;
+    }
+    .list-group{
+        margin-left:4%;
+        margin-right:4%;
+        width:250px;
+    }
+    #Phone{
+        width: 700px;
+        height: 420px;
+        margin: 0 auto auto auto;
+    }
+</style>
+<script>
+    var MyViewVar ={
+        var_1: {{List1}}
+    }
+</script>
+<script src="{% static 'js/echarts.js' %}"></script>
+<script src="{% static 'js/phone.js' %}"></script>
+
+{% endblock %}

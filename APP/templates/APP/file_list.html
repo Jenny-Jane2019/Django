@@ -13,19 +13,14 @@
                     <th >Filename & URL</th>
                     <th >Play</th>
                     <th >File size</th>
-                    <th >Recognize</th>
-                    <th >Result</th>
                 </tr>
             </thead>
             <tbody>
-
             {% for file in files %}
             <tr>
                 <td><a href="{{ file.file.url }}">{{ file.file.url }}</a></td>
                 <td><audio src="{{ file.file.url }}" controls width="200" height="200"></audio></td>
                 <td>{{ file.file.size | filesizeformat }}</td>
-                <td><input type="submit" value="Recognize"></td>
-                <td></td>
             </tr>
             {% endfor %}
             </tbody>
@@ -49,6 +44,7 @@
          .left{
             margin-left:4%;
             margin-right:4%;
+            width:250px;
          }
 </style>
 {% endblock %}
