@@ -4,21 +4,7 @@ __pycache__/
 *$py.class
 
 # Some produced files
-*wav
-*.xlsl
-*.csv
-*.pdf
-*.png
-output/
-tmp*/
-Label/
-0*/
-mnist/
-hide/
-plot*/
-ASC_result*/
-MyClass*/
-data/
+.ideal/
 
 
 
