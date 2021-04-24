@@ -1,0 +1,106 @@
+{% extends 'APP/main.html' %}
+{% load static %}
+{%  block content %}
+<div class="body">
+    <div class="left">
+        {% include 'APP/base.html' %}
+    </div>
+    <div class="card-header">
+        <div class="header">
+             <h3>Upload Audio File</h3>
+        </div>
+        <div class="upload" >
+            <div class="info">
+                 <form method="POST" action="" enctype="multipart/form-data">
+                      {% csrf_token %}
+                     <table class="table">
+                         <tr>
+                             <td>{{form.speaker_name.label}}</td>
+                             <td>{{form.speaker_name}}</td>
+                         </tr>
+                         <tr>
+                             <td>{{form.speaker_sex.label}}</td>
+                             <td>{{form.speaker_sex}}</td>
+                         </tr>
+                         <tr>
+                             <td>{{form.speaker_age.label}}</td>
+                             <td>{{form.speaker_age}}</td>
+                         </tr>
+                         <tr>
+                             <td>{{form.phone_type.label}}</td>
+                             <td>{{form.phone_type}}</td>
+                         </tr>
+                         <tr>
+                             <td>{{form.geography.label}}</td>
+                             <td>{{form.geography}}</td>
+                         </tr>
+                         <tr>
+                             <td>{{form.environment.label}}</td>
+                             <td>{{form.environment}}</td>
+                         </tr>
+                         <tr>
+                             <td>{{form.file.label}}</td>
+                             <td>{{form.file}}</td>
+
+                         </tr>
+                     </table>
+                     <div class="submit">
+                         <input type="submit" value="Upload">
+                     </div>
+                     {% for message in messages %}
+                         <div class="'alert alert-{{message.tags}}">{{message}}</div>
+                     {% endfor %}
+                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+     <script>
+     </script>
+
+
+     <style type="text/CSS">
+         *{ margin: 0;
+            padding: 0;
+           }
+         .body {
+            display:flex;
+            flex-direction:row;
+            margin-top:2em;
+         }
+         .left{
+            margin-left:4%;
+            margin-right:4%;
+            width:250px;
+         }
+         .upload{
+             display:flex;
+             justify-content:center;
+             flex-direction:row;
+             margin-top:1em;
+         }
+         .file{
+             display:flex;
+             flex-direction:column;
+             justify-content:center;
+             align-items:center;
+         }
+         .submit{
+             display:flex;
+             justify-content:center;
+             margin-top:0.5em;
+             margin-bottom:0.5em;
+         }
+         input[type="submit"]{
+             width: 5em;
+             margin-top: 0.5em;
+             padding: 0.5em 0;
+             border-radius: 4px;
+             border: 1px solid #000000;
+             background: #ffffff;
+         }
+
+     </style>
+
+{%  endblock%}

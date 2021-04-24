@@ -15,8 +15,6 @@ import base64
 from io import BytesIO
 import matplotlib.pyplot as plt
 
-
-
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm, CustomerForm, MapForm
@@ -24,15 +22,15 @@ from .decorators import allowed_users
 import os
 
 
-def home(request): #添加对应的处理方法
+def home(request):  # 添加对应的处理方法
     return render(request, 'APP/index.html')
 
 
-def library(request): #添加对应的处理方法
+def library(request):  # 添加对应的处理方法
     return render(request, 'APP/library.html')
 
 
-def geography(request): #添加对应的处理方法
+def geography(request):  # 添加对应的处理方法
     customer = Customer.objects.all()
     total = customer.count()
     female = customer.filter(speaker_sex="female")
@@ -183,7 +181,7 @@ def geography(request): #添加对应的处理方法
     return render(request, 'APP/geography.html', context)
 
 
-def age(request): #添加对应的处理方法
+def age(request):  # 添加对应的处理方法
     customer = Customer.objects.all()
     female = customer.filter(speaker_sex="female")
     num_f = female.count()
@@ -215,7 +213,7 @@ def age(request): #添加对应的处理方法
     return render(request, 'APP/age.html', context)
 
 
-def phone(request): #添加对应的处理方法
+def phone(request):  # 添加对应的处理方法
     customer = Customer.objects.all()
     list1 = []
     c = customer.filter(phone_type="Huawei").count()
@@ -236,7 +234,7 @@ def phone(request): #添加对应的处理方法
     return render(request, 'APP/phone.html', context)
 
 
-def environment(request): #添加对应的处理方法
+def environment(request):  # 添加对应的处理方法
     customer = Customer.objects.all()
     list1 = []
     e = customer.filter(environment="living room").count()
@@ -253,11 +251,11 @@ def environment(request): #添加对应的处理方法
     return render(request, 'APP/environment.html', context)
 
 
-def recognition(request): #添加对应的处理方法
+def recognition(request):  # 添加对应的处理方法
     return render(request, 'APP/recognition.html')
 
 
-def upload(request): #添加对应的处理方法
+def upload(request):  # 添加对应的处理方法
     if request.user.is_authenticated:
         username = request.user.username
     user = User.objects.get(username=username)
@@ -281,12 +279,11 @@ def upload(request): #添加对应的处理方法
 def file_list(request):
     count = Customer.objects.filter(user=request.user).count()
     if count > 5:
-        files = Customer.objects.filter(user=request.user)[count-5:] #列表切片，只显示最近上传的五条文件信息
+        files = Customer.objects.filter(user=request.user)[count - 5:]# 列表切片，只显示最近上传的五条文件信息
     else:
         files = Customer.objects.filter(user=request.user)
-        if count == 0 :
+        if count == 0:
             messages.info(request, "No files uploaded yet!")
-
     return render(request, 'APP/file_list.html', {'files': files})
 
 
@@ -297,7 +294,7 @@ def spectrum_map(request):
         return render(request, 'APP/spectrum_map.html')
     else:
         if count > 5:
-            files = Customer.objects.filter(user=request.user)[count-5:]
+            files = Customer.objects.filter(user=request.user)[count - 5:]
         else:
             files = Customer.objects.filter(user=request.user)
         img = []
@@ -334,7 +331,7 @@ def model(request):
     return render(request, 'APP/model.html', {'files': files})
 
 
-def loginPage(request):#添加对应的处理方法
+def loginPage(request):  # 添加对应的处理方法
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -370,7 +367,7 @@ def registerPage(request):
                 user = form.save()
                 username = form.cleaned_data.get('username')
 
-                group =Group.objects.get(name='customer')
+                group = Group.objects.get(name='customer')
                 user.groups.add(group)
 
                 messages.success(request, 'Account was created for ' + username)

@@ -1,0 +1,50 @@
+{% extends 'APP/main.html' %}
+
+{% block content %}
+<div class="body">
+    <div class="left">
+        {% include 'APP/base.html' %}
+    </div>
+    <div class="card-header">
+        <h3>Audio File List</h3>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th >Filename & URL</th>
+                    <th >recognize</th>
+                    <th >result</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for file in files %}
+            <tr>
+                <td><a href="{{ file.file.url }}">{{ file.file.url }}</a></td>
+                <td><input type="submit" value="Recognize"></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% for message in messages %}
+            <div >
+                <hr>
+                <p id="messages">{{message}}Please click <a href="{% url 'upload' %}">here</a> to upload files.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+        .body {
+            display:flex;
+            flex-direction:row;
+            margin-top:2em;
+         }
+         .left{
+            margin-left:4%;
+            margin-right:4%;
+            width:250px;
+         }
+</style>
+{% endblock %}

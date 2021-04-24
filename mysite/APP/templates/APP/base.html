@@ -1,0 +1,19 @@
+
+
+<div class="list-group">
+  <a href="{% url 'recognition' %}" class="list-group-item list-group-item-action active">
+    MENU
+  </a>
+  <a href="{% url 'upload' %}" class="list-group-item list-group-item-action">Upload</a>
+  <a href="{% url 'file_list' %}" class="list-group-item list-group-item-action">Audio File List</a>
+  <a href="{% url 'spectrum_map' %}" class="list-group-item list-group-item-action">Spectrum Map</a>
+  <div class="btn-group-vertical" >
+    <a class="list-group-item list-group-item-action" type="button" data-toggle="dropdown">Recognize</a>
+  <ul class="dropdown-menu" style="width:250px">
+  <li><a class="dropdown-item" href="{% url 'model' %}">A</a></li>
+  <li><a class="dropdown-item" href="{% url 'model' %}">B</a></li>
+  <li><a class="dropdown-item" href="{% url 'model' %}">C</a></li>
+  <li><a class="dropdown-item" href="{% url 'model' %}">D</a></li>
+  </ul>
+</div>
+</div>
