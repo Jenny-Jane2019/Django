@@ -1,8 +1,17 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
+"""Django's command-line utility for administrative tasks.
+
+In the local machine, chang the database path
+In the remote, we use MySql. In the local, we use sqllite
+
+"""
+
+
 import os
 import sys
 import librosa
+
+
 
 def main():
     """Run administrative tasks."""
